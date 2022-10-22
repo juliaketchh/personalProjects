@@ -25,14 +25,44 @@ def printGameBoard(board) :
         print()        
 
 def quitGame(userInput) :
-    if userInput == "q":
-        print("Thanks for playing!")
+    if userInput.lower() == "q":
+        print("thanks for playing!")
         return True
     else: return False
 
-# printGameBoard(board)
+def checkInput(userInput) :
+    # check if input is a number
+    if not isNum(userInput):
+        return False
+    # is 1 - 9
+    userInputNum = int(userInput)
 
-while True:
-    userInput = input("Please enter a slot 1-9 or \"q\" to quit: ")
+    if not bounds(userInputNum) :
+        return False
+    #check if the slot if not already taken 
+    return True
+
+def isNum(userInput) :
+    if not userInput.isnumeric() :
+        print("this is not a valid number")
+        return False
+    else: return True
+
+def bounds(userInput) :
+    if userInput > 9 or userInput < 1 :
+        print("this number is out of bounds")
+        return False
+    else: return True
+
+def isTaken(userInput) :
+    if 
+
+
+while True :
+    userInput = input("enter a slot 1-9 or \"q\" to quit: ")
     if quitGame(userInput):
         break
+    if not checkInput(userInput):
+        print("please try again")
+        continue
+    userInput = int(userInput) - 1
